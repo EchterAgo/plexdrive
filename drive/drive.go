@@ -389,7 +389,7 @@ func (d *Client) mapFileToObject(file *gdrive.File) (*APIObject, error) {
 		IsDir:        file.MimeType == "application/vnd.google-apps.folder",
 		LastModified: lastModified,
 		Size:         uint64(file.Size),
-		DownloadURL:  fmt.Sprintf("https://www.googleapis.com/drive/v3/files/%v?alt=media", file.Id),
+		DownloadURL:  fmt.Sprintf("https://www.googleapis.com/drive/v3/files/%v?alt=media&acknowledgeAbuse=true", file.Id),
 		Parents:      parents,
 		CanTrash:     file.Capabilities.CanTrash,
 	}, nil
